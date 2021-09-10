@@ -11,7 +11,7 @@ const Upload = () => {
   const today = new Date()
   const timestamp = today.toISOString()
 
-  let id = faker.datatype.uuid()
+  let id = faker.random.uuid()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -29,10 +29,10 @@ const Upload = () => {
         timestamp: timestamp,
         button_visible: false  
       }
-      console.log(data)
 
       axios.post('/.netlify/functions/add', data)
       .then((response) => {
+      console.log(response)
       })
     .catch((err) => {
       console.error(err)
@@ -67,7 +67,7 @@ const Upload = () => {
                   />
                 </div>
               </div>
-            </div>
+            </div>			
             <button>Post</button>
           </form>
         </div>

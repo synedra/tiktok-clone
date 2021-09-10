@@ -18,7 +18,7 @@ const Home = () => {
 
   //fetch all the tik-tok posts to your feed
   const fetchData = async () => {
-    const results = await axios.get('/.netlify/functions/post')
+    const results = await axios.get('/.netlify/functions/posts')
     console.log(results.data)
     setUsers(results.data)
   }
@@ -28,10 +28,8 @@ const Home = () => {
   const newValue = userToToggle.is_followed ? false : true
   const data = {is_followed: newValue}
 
-  console.log(newValue)
-  console.log(userToToggle.id)
-
    axios.put('/.netlify/functions/edit', {userId: userToToggle.id, data: data })
+    .then(res => res.json())
     .then(json => console.log(json))
     .catch(err => console.error('error:' + err))
     .then(() => fetchData())
@@ -43,10 +41,7 @@ const Home = () => {
     fetchData()
   }, [])
 
-  console.log(users)
-
   if (users) {
-    console.log(users)
     descendingUsers = users.sort((a, b) => a.id < b.id ? 1 : -1)
     const following = users.filter(user => user.is_followed === true)
     const descendingFollowing = following.sort((a, b) => a.likes < b.likes ? 1 : -1)
