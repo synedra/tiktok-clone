@@ -10,7 +10,7 @@ const Card = ({ user, toggleFollow }) => {
       <div className="break" />
         <div className="section">
           <div className="user-info">
-            <img className="user-profile"  src={user.avatar} width={'100%'} />
+            <img className="user-profile" alt="user profile*" src={user.avatar} width={'100%'} />
             <div>
             <div className="section">
               <h3 className="bold">{user.username}</h3>
