@@ -4,7 +4,7 @@ const MiniCard = ({ user, toggleFollow }) => {
   return (
     <div className="section minicard">
       <div className="section">
-        <img className="user-profile"  src={user.avatar} width={'100%'} />
+        <img className="user-profile" alt="User profile" src={user.avatar} width={'100%'} />
         <div>
           <h3 className="bold">{user.username}</h3>
           <p>{user.name}</p>
