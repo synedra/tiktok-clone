@@ -18,7 +18,7 @@ exports.handler = async function (event, context, callback) {
 
         return {
             statusCode: 200,
-            body: JSON.stringify(res, null, 4)
+            body: JSON.stringify(Object.keys(res).map((i) => res[i])),
         }
     } catch (e) {
         console.error(e);
