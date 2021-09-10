@@ -94,8 +94,5 @@ exports.handler = async function (event, context, callback) {
             statusCode: 500,
             body: JSON.stringify(e),
         }
-    } return {
-        statusCode: 500,
-        body: JSON.stringify(e),
-    }
+    } 
 }
